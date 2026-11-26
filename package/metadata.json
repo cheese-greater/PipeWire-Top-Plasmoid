@@ -1,0 +1,12 @@
+{
+    "KPackageStructure": "Plasma/Applet",
+    "KPlugin": {
+        "Category": "Multimedia",
+        "Description": "Shows the sample format, rate and bitrate of PipeWire nodes that are currently running (from pw-top)",
+        "Icon": "audio-card",
+        "Id": "io.pwtop.plasmoid",
+        "Name": "PipeWire Top",
+        "Version": "1.0"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
