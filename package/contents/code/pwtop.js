@@ -96,38 +96,10 @@ function formatBitDepth(audioFormat) {
     return audioFormat.bitDepth + "-bit" + (audioFormat.isFloat ? " float" : "");
 }
 
-function formatBitrate(bitsPerSecond) {
-    if (bitsPerSecond >= 1000000) {
-        return parseFloat((bitsPerSecond / 1000000).toFixed(2)) + " Mbps";
-    }
-    return Math.round(bitsPerSecond / 1000) + " kbps";
-}
-
 // Short form for the panel, for example "32-bit / 44.1 kHz".
 function formatShort(node) {
     if (!node.audioFormat) {
         return node.formatText;
     }
     return formatBitDepth(node.audioFormat) + " / " + formatSampleRate(node.audioFormat.sampleRate);
-}
-
-// Long form for the popup, for example "S32LE, 2 ch, 44.1 kHz, 2.82 Mbps, quantum 512 (11.6 ms)".
-function formatDetails(node) {
-    var parts = [];
-    if (node.audioFormat) {
-        parts.push(node.audioFormat.sampleFormat);
-        parts.push(node.audioFormat.channelCount + " ch");
-        parts.push(formatSampleRate(node.audioFormat.sampleRate));
-        parts.push(formatBitrate(node.audioFormat.bitsPerSecond));
-    } else if (node.formatText) {
-        parts.push(node.formatText);
-    }
-    if (node.quantum > 0 && node.rate > 0) {
-        var latencyMilliseconds = (node.quantum / node.rate) * 1000;
-        parts.push("quantum " + node.quantum + " (" + latencyMilliseconds.toFixed(1) + " ms)");
-    }
-    if (node.errorCount > 0) {
-        parts.push(node.errorCount + " xruns");
-    }
-    return parts.join(", ");
 }

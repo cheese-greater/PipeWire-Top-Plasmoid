@@ -92,16 +92,6 @@ PlasmoidItem {
 
     // The table is drawn directly in the panel (or on the desktop); there is no popup.
     preferredRepresentation: fullRepresentation
-    toolTipMainText: Plasmoid.title
-    toolTipSubText: {
-        if (errorMessage.length > 0) {
-            return errorMessage;
-        }
-        if (runningNodes.length === 0) {
-            return "Nothing is playing";
-        }
-        return runningNodes.map(node => (node.isStream ? "  + " : "") + displayName(node) + ": " + PwTop.formatDetails(node)).join("\n");
-    }
 
     // One table row: quantum, rate, format, name. Also used for the column header.
     component NodeRow: Row {
@@ -198,6 +188,15 @@ PlasmoidItem {
             font.bold: true
             font.family: Kirigami.Theme.defaultFont.family
             font.pixelSize: display.fontPixelSize
+        }
+
+        // Only an error gets a tooltip; the table already shows everything else.
+        PlasmaCore.ToolTipArea {
+            active: root.errorMessage.length > 0
+            anchors.fill: parent
+            mainText: Plasmoid.title
+            subText: root.errorMessage
+            textFormat: Text.PlainText
         }
 
         Kirigami.Icon {

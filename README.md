@@ -13,15 +13,13 @@ One row per running node, refreshed every second:
 | FORMAT | Sample format, channel count, and sample rate (for example `S32LE 2 48000`) |
 | NAME   | Device description; streams playing through a device are listed under it with a `+` prefix |
 
-Hovering the widget shows a tooltip with more detail per node: channel count, bitrate, latency in milliseconds, and the xrun count when there are any.
-
 The layout adapts to where the widget lives:
 
 - **Horizontal panel:** a compact table without a header; the text shrinks so all rows fit the panel height.
 - **Vertical panel:** each node is a small stacked block.
 - **Desktop:** the full table with a header row.
 
-When nothing is playing, the widget collapses to a dimmed sound card icon. If `pw-top` fails, it shows a warning icon and the error appears in the tooltip.
+When nothing is playing, the widget collapses to a dimmed sound card icon. If `pw-top` fails, it shows a warning icon; hover it to see the error message.
 
 ## Requirements
 
