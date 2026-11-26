@@ -5,8 +5,10 @@
         "Description": "Shows the sample format, rate and bitrate of PipeWire nodes that are currently running (from pw-top)",
         "Icon": "audio-card",
         "Id": "io.pwtop.plasmoid",
+        "License": "MIT",
         "Name": "PipeWire Top",
-        "Version": "1.0"
+        "Version": "1.0",
+        "Website": "https://github.com/cheese-greater/PipeWire-Top-Plasmoid"
     },
     "X-Plasma-API-Minimum-Version": "6.0"
 }
